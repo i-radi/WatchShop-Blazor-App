@@ -1,0 +1,36 @@
+﻿@page "/product/{id:int}"
+@inject ProductService ProductService
+
+<div  class="zoom@_zoom">
+
+    <ProductItem Name="@_product.Name"
+                 Id="@_product.Id"
+                 Description="@_product.Description"
+                 ImageUrl="@_product.ImageUrl"
+                 Price="@_product.Price">
+        <h3>Specifications</h3>
+        <p>
+            @((MarkupString)_product.Specifications)
+        </p>
+        <ProductReviews Reviews="_product.Reviews"></ProductReviews>
+    </ProductItem>
+</div>
+
+@code {
+    Product _product = null;
+    int _zoom = 0;
+    protected override void OnInitialized()
+    {
+        _product = ProductService.GetProduct(Id);
+        base.OnInitialized();
+    }
+    [Parameter]
+    public int Id { get; set; }
+
+    void DivClicked()
+    {
+        _zoom++;
+        if (_zoom > 3) _zoom = 0;
+    }
+    
+}
