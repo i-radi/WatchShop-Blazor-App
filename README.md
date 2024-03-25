@@ -29,4 +29,4 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/watchshop-blazor-app.git
+   git clone https://github.com/i-radi/watchshop-blazor-app.git
